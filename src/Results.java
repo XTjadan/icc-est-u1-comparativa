@@ -27,9 +27,16 @@ public class Results {
     }
     @Override
     public String toString() {
-        double segundos = duration/1000000000;
-        return "Results name = " + name + ", duration = " + duration + "ns" + ", Segundos = " + segundos  
-        + ", sample = " + sample ;
+        double milisegundos = duration/1_000_000.0;
+        double segundos = duration/1_000_000_000.;
+        /* 
+        return "Results name:  " + name + "| duration: " + duration + "ns" + "| Milisegundos: " + milisegundos + "ms"  
+        + "| Segundos: " + segundos + "s" +  "| sample: " + sample ;
+        */
+
+       return String.format(
+        "Results name: %-18s| duration: %10dns| Milisegundos: %9.4fms| Segundos: %8.6fs| sample: %s",
+        name, duration, milisegundos, segundos, sample);
     }
 
     
